@@ -62,14 +62,14 @@ Dirancang untuk ringan, cepat, dan nyaman digunakan langsung dari menu bar tanpa
 ### 1. Clone repo
 
 ```bash
-git clone https://github.com/username/zabbix.git
-cd zabbix
+git clone https://github.com/adtzslowy/GoUI.git
+cd GoUI
 ```
 
 ### 2. Open project
 
 ```bash
-open Zabbix.xcodeproj
+open GoUI.xcodeproj
 ```
 
 ---
@@ -149,14 +149,14 @@ Menggunakan Apple SMC via:
 ## 🏗️ Architecture
 
 ```
-Zabbix (Main App)
+GoUI (Main App)
  ├─ UI (SwiftUI)
  ├─ SystemMonitor
  ├─ CPU / Memory / Disk Reader
  ├─ FanMonitor (SMCKit)
  └─ ExternalBrightnessService (ddcctl)
 
-ZabbixHelper (planned)
+GoUIHelper (planned)
  └─ Privileged operations (fan control)
 ```
 
