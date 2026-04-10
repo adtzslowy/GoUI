@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>GoUIHelper.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BC74323E2F88F17E00ED5A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC74324F2F88F18000ED5A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC7432592F88F18000ED5A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

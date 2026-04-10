@@ -14,6 +14,27 @@
 		BC7432552F88F18000ED5A76 /* GoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432542F88F18000ED5A76 /* GoUITests.swift */; };
 		BC74325F2F88F18000ED5A76 /* GoUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74325E2F88F18000ED5A76 /* GoUIUITests.swift */; };
 		BC7432612F88F18000ED5A76 /* GoUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432602F88F18000ED5A76 /* GoUIUITestsLaunchTests.swift */; };
+		BC7432742F88F1B100ED5A76 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432732F88F1B100ED5A76 /* main.swift */; };
+		BC74327A2F88F24200ED5A76 /* SystemStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432792F88F24200ED5A76 /* SystemStats.swift */; };
+		BC74327C2F88F25E00ED5A76 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74327B2F88F25E00ED5A76 /* SystemMonitor.swift */; };
+		BC74327E2F88F27C00ED5A76 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74327D2F88F27C00ED5A76 /* StatusBarController.swift */; };
+		BC7432802F88F29F00ED5A76 /* PopupContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74327F2F88F29F00ED5A76 /* PopupContentView.swift */; };
+		BC7432822F88F2C700ED5A76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432812F88F2C700ED5A76 /* AppDelegate.swift */; };
+		BC7432852F88F2F900ED5A76 /* RingStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432842F88F2F900ED5A76 /* RingStatView.swift */; };
+		BC7432872F88F31200ED5A76 /* FanControlCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432862F88F31200ED5A76 /* FanControlCard.swift */; };
+		BC7432892F88F32300ED5A76 /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432882F88F32300ED5A76 /* DashboardHeaderView.swift */; };
+		BC74328B2F88F33F00ED5A76 /* BrightnessCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74328A2F88F33F00ED5A76 /* BrightnessCard.swift */; };
+		BC74328E2F88F36400ED5A76 /* CPUReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74328D2F88F36400ED5A76 /* CPUReader.swift */; };
+		BC7432902F88F37B00ED5A76 /* DiskReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74328F2F88F37B00ED5A76 /* DiskReader.swift */; };
+		BC7432922F88F3A300ED5A76 /* ExternalBrightnessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432912F88F3A300ED5A76 /* ExternalBrightnessService.swift */; };
+		BC7432942F88F3BF00ED5A76 /* FanMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */; };
+		BC7432962F88F3E200ED5A76 /* MemoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432952F88F3E200ED5A76 /* MemoryReader.swift */; };
+		BC74329E2F88F49700ED5A76 /* HelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */; };
+		BC7432A02F88F4B800ED5A76 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */; };
+		BC7432A12F88F4B800ED5A76 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */; };
+		BC7432A42F88F6AE00ED5A76 /* PrivilegeHelperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */; };
+		BC7432A62F88F81700ED5A76 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
+		BC7432A82F89458000ED5A76 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +54,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BC74326F2F88F1B100ED5A76 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BC74323F2F88F17E00ED5A76 /* GoUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7432422F88F17E00ED5A76 /* GoUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoUIApp.swift; sourceTree = "<group>"; };
@@ -45,6 +78,26 @@
 		BC74325A2F88F18000ED5A76 /* GoUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC74325E2F88F18000ED5A76 /* GoUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoUIUITests.swift; sourceTree = "<group>"; };
 		BC7432602F88F18000ED5A76 /* GoUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC7432712F88F1B100ED5A76 /* GoUIHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GoUIHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC7432732F88F1B100ED5A76 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BC7432792F88F24200ED5A76 /* SystemStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStats.swift; sourceTree = "<group>"; };
+		BC74327B2F88F25E00ED5A76 /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
+		BC74327D2F88F27C00ED5A76 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		BC74327F2F88F29F00ED5A76 /* PopupContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContentView.swift; sourceTree = "<group>"; };
+		BC7432812F88F2C700ED5A76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BC7432842F88F2F900ED5A76 /* RingStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingStatView.swift; sourceTree = "<group>"; };
+		BC7432862F88F31200ED5A76 /* FanControlCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanControlCard.swift; sourceTree = "<group>"; };
+		BC7432882F88F32300ED5A76 /* DashboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
+		BC74328A2F88F33F00ED5A76 /* BrightnessCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessCard.swift; sourceTree = "<group>"; };
+		BC74328D2F88F36400ED5A76 /* CPUReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUReader.swift; sourceTree = "<group>"; };
+		BC74328F2F88F37B00ED5A76 /* DiskReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskReader.swift; sourceTree = "<group>"; };
+		BC7432912F88F3A300ED5A76 /* ExternalBrightnessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrightnessService.swift; sourceTree = "<group>"; };
+		BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanMonitor.swift; sourceTree = "<group>"; };
+		BC7432952F88F3E200ED5A76 /* MemoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReader.swift; sourceTree = "<group>"; };
+		BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperDelegate.swift; sourceTree = "<group>"; };
+		BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegeHelperManager.swift; sourceTree = "<group>"; };
+		BC7432A52F88F81700ED5A76 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMC.swift; path = ../../../SMCKit/SMCKit/SMC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +122,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BC74326E2F88F1B100ED5A76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +138,7 @@
 				BC7432412F88F17E00ED5A76 /* GoUI */,
 				BC7432532F88F18000ED5A76 /* GoUITests */,
 				BC74325D2F88F18000ED5A76 /* GoUIUITests */,
+				BC7432722F88F1B100ED5A76 /* GoUIHelper */,
 				BC7432402F88F17E00ED5A76 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +149,7 @@
 				BC74323F2F88F17E00ED5A76 /* GoUI.app */,
 				BC7432502F88F18000ED5A76 /* GoUITests.xctest */,
 				BC74325A2F88F18000ED5A76 /* GoUIUITests.xctest */,
+				BC7432712F88F1B100ED5A76 /* GoUIHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +157,10 @@
 		BC7432412F88F17E00ED5A76 /* GoUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC7432A22F88F68C00ED5A76 /* Helper */,
+				BC74328C2F88F34E00ED5A76 /* Service */,
+				BC7432832F88F2D800ED5A76 /* UI */,
+				BC7432782F88F23100ED5A76 /* Controller */,
 				BC7432422F88F17E00ED5A76 /* GoUIApp.swift */,
 				BC7432442F88F17E00ED5A76 /* ContentView.swift */,
 				BC7432462F88F17F00ED5A76 /* Assets.xcassets */,
@@ -127,6 +193,60 @@
 				BC7432602F88F18000ED5A76 /* GoUIUITestsLaunchTests.swift */,
 			);
 			path = GoUIUITests;
+			sourceTree = "<group>";
+		};
+		BC7432722F88F1B100ED5A76 /* GoUIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432732F88F1B100ED5A76 /* main.swift */,
+				BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */,
+				BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */,
+			);
+			path = GoUIHelper;
+			sourceTree = "<group>";
+		};
+		BC7432782F88F23100ED5A76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432792F88F24200ED5A76 /* SystemStats.swift */,
+				BC74327B2F88F25E00ED5A76 /* SystemMonitor.swift */,
+				BC74327D2F88F27C00ED5A76 /* StatusBarController.swift */,
+				BC74327F2F88F29F00ED5A76 /* PopupContentView.swift */,
+				BC7432812F88F2C700ED5A76 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC7432832F88F2D800ED5A76 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432842F88F2F900ED5A76 /* RingStatView.swift */,
+				BC7432862F88F31200ED5A76 /* FanControlCard.swift */,
+				BC7432882F88F32300ED5A76 /* DashboardHeaderView.swift */,
+				BC74328A2F88F33F00ED5A76 /* BrightnessCard.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BC74328C2F88F34E00ED5A76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432A52F88F81700ED5A76 /* SMC.swift */,
+				BC74328D2F88F36400ED5A76 /* CPUReader.swift */,
+				BC74328F2F88F37B00ED5A76 /* DiskReader.swift */,
+				BC7432912F88F3A300ED5A76 /* ExternalBrightnessService.swift */,
+				BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */,
+				BC7432952F88F3E200ED5A76 /* MemoryReader.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BC7432A22F88F68C00ED5A76 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +305,23 @@
 			productReference = BC74325A2F88F18000ED5A76 /* GoUIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		BC7432702F88F1B100ED5A76 /* GoUIHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC7432752F88F1B100ED5A76 /* Build configuration list for PBXNativeTarget "GoUIHelper" */;
+			buildPhases = (
+				BC74326D2F88F1B100ED5A76 /* Sources */,
+				BC74326E2F88F1B100ED5A76 /* Frameworks */,
+				BC74326F2F88F1B100ED5A76 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoUIHelper;
+			productName = GoUIHelper;
+			productReference = BC7432712F88F1B100ED5A76 /* GoUIHelper */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +343,9 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = BC74323E2F88F17E00ED5A76;
 					};
+					BC7432702F88F1B100ED5A76 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = BC74323A2F88F17E00ED5A76 /* Build configuration list for PBXProject "GoUI" */;
@@ -224,6 +364,7 @@
 				BC74323E2F88F17E00ED5A76 /* GoUI */,
 				BC74324F2F88F18000ED5A76 /* GoUITests */,
 				BC7432592F88F18000ED5A76 /* GoUIUITests */,
+				BC7432702F88F1B100ED5A76 /* GoUIHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -259,8 +400,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7432942F88F3BF00ED5A76 /* FanMonitor.swift in Sources */,
+				BC7432892F88F32300ED5A76 /* DashboardHeaderView.swift in Sources */,
+				BC74327A2F88F24200ED5A76 /* SystemStats.swift in Sources */,
+				BC7432A42F88F6AE00ED5A76 /* PrivilegeHelperManager.swift in Sources */,
 				BC7432452F88F17E00ED5A76 /* ContentView.swift in Sources */,
+				BC7432922F88F3A300ED5A76 /* ExternalBrightnessService.swift in Sources */,
+				BC7432A02F88F4B800ED5A76 /* HelperProtocol.swift in Sources */,
 				BC7432432F88F17E00ED5A76 /* GoUIApp.swift in Sources */,
+				BC7432902F88F37B00ED5A76 /* DiskReader.swift in Sources */,
+				BC7432802F88F29F00ED5A76 /* PopupContentView.swift in Sources */,
+				BC74328E2F88F36400ED5A76 /* CPUReader.swift in Sources */,
+				BC7432A62F88F81700ED5A76 /* SMC.swift in Sources */,
+				BC7432962F88F3E200ED5A76 /* MemoryReader.swift in Sources */,
+				BC74328B2F88F33F00ED5A76 /* BrightnessCard.swift in Sources */,
+				BC7432852F88F2F900ED5A76 /* RingStatView.swift in Sources */,
+				BC7432822F88F2C700ED5A76 /* AppDelegate.swift in Sources */,
+				BC7432872F88F31200ED5A76 /* FanControlCard.swift in Sources */,
+				BC74327E2F88F27C00ED5A76 /* StatusBarController.swift in Sources */,
+				BC74327C2F88F25E00ED5A76 /* SystemMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +436,17 @@
 			files = (
 				BC7432612F88F18000ED5A76 /* GoUIUITestsLaunchTests.swift in Sources */,
 				BC74325F2F88F18000ED5A76 /* GoUIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC74326D2F88F1B100ED5A76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC74329E2F88F49700ED5A76 /* HelperDelegate.swift in Sources */,
+				BC7432742F88F1B100ED5A76 /* main.swift in Sources */,
+				BC7432A12F88F4B800ED5A76 /* HelperProtocol.swift in Sources */,
+				BC7432A82F89458000ED5A76 /* SMC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +697,24 @@
 			};
 			name = Release;
 		};
+		BC7432762F88F1B100ED5A76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC7432772F88F1B100ED5A76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +750,15 @@
 			buildConfigurations = (
 				BC74326B2F88F18000ED5A76 /* Debug */,
 				BC74326C2F88F18000ED5A76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC7432752F88F1B100ED5A76 /* Build configuration list for PBXNativeTarget "GoUIHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC7432762F88F1B100ED5A76 /* Debug */,
+				BC7432772F88F1B100ED5A76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
