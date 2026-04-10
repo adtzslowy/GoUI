@@ -98,6 +98,7 @@
 		BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegeHelperManager.swift; sourceTree = "<group>"; };
 		BC7432A52F88F81700ED5A76 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMC.swift; path = ../../../SMCKit/SMCKit/SMC.swift; sourceTree = "<group>"; };
+		BC7432AA2F894E3C00ED5A76 /* GoUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GoUI.png; path = ../../../Downloads/GoUI.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 		BC7432362F88F17E00ED5A76 = {
 			isa = PBXGroup;
 			children = (
+				BC7432A92F894BE600ED5A76 /* assets */,
 				BC7432412F88F17E00ED5A76 /* GoUI */,
 				BC7432532F88F18000ED5A76 /* GoUITests */,
 				BC74325D2F88F18000ED5A76 /* GoUIUITests */,
@@ -247,6 +249,14 @@
 				BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		BC7432A92F894BE600ED5A76 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				BC7432AA2F894E3C00ED5A76 /* GoUI.png */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
