@@ -1,37 +1,30 @@
+//
+//  FanMonitor.swift
+//  GoUI
+//
+
 import Foundation
 
 enum FanMonitor {
     static func currentFans() -> [FanInfo] {
         do {
-            print("Trying SMCKit.open()...")
             try SMCKit.open()
             defer { _ = SMCKit.close() }
 
-            let count = try SMCKit.fanCount()
-            print("Fan count =", count)
+            let fans = try SMCKit.allFans()
+            guard !fans.isEmpty else { return [] }
 
-            guard count > 0 else { return [] }
-
-            var fans: [FanInfo] = []
-
-            for index in 0..<count {
-                let rpm = try SMCKit.fanCurrentSpeed(index)
-                let minRPM = try SMCKit.fanMinSpeed(index)
-                let maxRPM = try SMCKit.fanMaxSpeed(index)
-
-                let rawName = (try? SMCKit.fanName(index)) ?? ""
-                let cleanName = rawName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-                    ? (count == 1 ? "System Fan" : "Fan \(index + 1)")
-                    : rawName
-
-                fans.append(FanInfo(id: index, name: cleanName, rpm: rpm, maxRPM: maxRPM, minRPM: minRPM))
+            return fans.map { fan in
+                let rpm = (try? SMCKit.fanCurrentSpeed(fan.id)) ?? 0
+                let name = fan.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                    ? (fans.count == 1 ? "System Fan" : "Fan \(fan.id + 1)")
+                    : fan.name
+                return FanInfo(id: fan.id, name: name, rpm: rpm,
+                               maxRPM: fan.maxSpeed, minRPM: fan.minSpeed)
             }
-
-            return fans
         } catch {
             print("SMCKit error:", error)
             return []
         }
     }
 }
-

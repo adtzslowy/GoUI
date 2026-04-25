@@ -23,10 +23,17 @@ struct FanControlCard: View {
             HStack(spacing: 10) {
                 modeButton(title: "Auto", active: !isManualMode) {
                     isManualMode = false
-                    PrivilegedHelperManager.shared.resetFanAuto { ok, message in
-                        DispatchQueue.main.async {
-                            statusText = ok ? "Fan kembali ke auto" : message
+                    do {
+                        try SMCKit.open()
+                        defer { _ = SMCKit.close() }
+                        for fan in monitor.stats.fans {
+                            try SMCKit.fanSetMinSpeed(fan.id, speed: fan.minRPM)
                         }
+                        statusText = "Fan kembali ke auto"
+                    } catch SMCKit.SMCError.notPrivileged {
+                        statusText = "Butuh akses root"
+                    } catch {
+                        statusText = "Error: \(error.localizedDescription)"
                     }
                 }
 
@@ -69,10 +76,19 @@ struct FanControlCard: View {
                     }
 
                     Button("Apply") {
-                        PrivilegedHelperManager.shared.setFanMinSpeed(Int(manualFanRPM)) { ok, message in
-                            DispatchQueue.main.async {
-                                statusText = ok ? "Minimum fan speed diatur ke \(Int(manualFanRPM)) RPM" : message
+                        do {
+                            try SMCKit.open()
+                            defer { _ = SMCKit.close() }
+                            for fan in monitor.stats.fans {
+                                try SMCKit.fanSetMinSpeed(fan.id, speed: Int(manualFanRPM))
                             }
+                            statusText = "Fan diatur ke \(Int(manualFanRPM)) RPM"
+                        } catch SMCKit.SMCError.notPrivileged {
+                            statusText = "Butuh akses root"
+                        } catch SMCKit.SMCError.unsafeFanSpeed {
+                            statusText = "RPM tidak valid"
+                        } catch {
+                            statusText = "Error: \(error.localizedDescription)"
                         }
                     }
                     .buttonStyle(.plain)
@@ -104,8 +120,8 @@ struct FanControlCard: View {
 
     private var sliderRange: ClosedRange<Double>? {
         guard !monitor.stats.fans.isEmpty else { return nil }
-        let minValue = monitor.stats.fans.map(\.minRPM).min() ?? 2000
-        let maxValue = monitor.stats.fans.map(\.maxRPM).max() ?? 6000
+        let minValue = monitor.stats.fans.map(\.minRPM).min() ?? 1299
+        let maxValue = monitor.stats.fans.map(\.maxRPM).max() ?? 6199
         guard minValue < maxValue else { return nil }
         return Double(minValue)...Double(maxValue)
     }
@@ -137,4 +153,3 @@ struct FanControlCard: View {
         }
     }
 }
-

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC49E2E22F8BB01D007025D6 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49E2E12F8BB01D007025D6 /* HelperProtocol.swift */; };
+		BC49E2E42F8BB1FB007025D6 /* FanHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49E2E32F8BB1FB007025D6 /* FanHelper.swift */; };
+		BC49E2EB2F8BB678007025D6 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49E2E12F8BB01D007025D6 /* HelperProtocol.swift */; };
+		BC49E2EE2F8BC2A7007025D6 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
 		BC7432432F88F17E00ED5A76 /* GoUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432422F88F17E00ED5A76 /* GoUIApp.swift */; };
 		BC7432452F88F17E00ED5A76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432442F88F17E00ED5A76 /* ContentView.swift */; };
 		BC7432472F88F17F00ED5A76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7432462F88F17F00ED5A76 /* Assets.xcassets */; };
@@ -29,11 +33,6 @@
 		BC7432922F88F3A300ED5A76 /* ExternalBrightnessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432912F88F3A300ED5A76 /* ExternalBrightnessService.swift */; };
 		BC7432942F88F3BF00ED5A76 /* FanMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */; };
 		BC7432962F88F3E200ED5A76 /* MemoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432952F88F3E200ED5A76 /* MemoryReader.swift */; };
-		BC74329E2F88F49700ED5A76 /* HelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */; };
-		BC7432A02F88F4B800ED5A76 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */; };
-		BC7432A12F88F4B800ED5A76 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */; };
-		BC7432A42F88F6AE00ED5A76 /* PrivilegeHelperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */; };
-		BC7432A62F88F81700ED5A76 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
 		BC7432A82F89458000ED5A76 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC49E2E12F8BB01D007025D6 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		BC49E2E32F8BB1FB007025D6 /* FanHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanHelper.swift; sourceTree = "<group>"; };
 		BC74323F2F88F17E00ED5A76 /* GoUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7432422F88F17E00ED5A76 /* GoUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoUIApp.swift; sourceTree = "<group>"; };
 		BC7432442F88F17E00ED5A76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,9 +95,6 @@
 		BC7432912F88F3A300ED5A76 /* ExternalBrightnessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrightnessService.swift; sourceTree = "<group>"; };
 		BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanMonitor.swift; sourceTree = "<group>"; };
 		BC7432952F88F3E200ED5A76 /* MemoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReader.swift; sourceTree = "<group>"; };
-		BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperDelegate.swift; sourceTree = "<group>"; };
-		BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
-		BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegeHelperManager.swift; sourceTree = "<group>"; };
 		BC7432A52F88F81700ED5A76 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMC.swift; path = ../../../SMCKit/SMCKit/SMC.swift; sourceTree = "<group>"; };
 		BC7432AA2F894E3C00ED5A76 /* GoUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GoUI.png; path = ../../../Downloads/GoUI.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,7 +157,6 @@
 		BC7432412F88F17E00ED5A76 /* GoUI */ = {
 			isa = PBXGroup;
 			children = (
-				BC7432A22F88F68C00ED5A76 /* Helper */,
 				BC74328C2F88F34E00ED5A76 /* Service */,
 				BC7432832F88F2D800ED5A76 /* UI */,
 				BC7432782F88F23100ED5A76 /* Controller */,
@@ -201,8 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				BC7432732F88F1B100ED5A76 /* main.swift */,
-				BC74329D2F88F49700ED5A76 /* HelperDelegate.swift */,
-				BC74329F2F88F4B800ED5A76 /* HelperProtocol.swift */,
+				BC49E2E12F8BB01D007025D6 /* HelperProtocol.swift */,
+				BC49E2E32F8BB1FB007025D6 /* FanHelper.swift */,
 			);
 			path = GoUIHelper;
 			sourceTree = "<group>";
@@ -241,14 +238,6 @@
 				BC7432952F88F3E200ED5A76 /* MemoryReader.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		BC7432A22F88F68C00ED5A76 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				BC7432A32F88F6AE00ED5A76 /* PrivilegeHelperManager.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		BC7432A92F894BE600ED5A76 /* assets */ = {
@@ -367,6 +356,8 @@
 				Base,
 			);
 			mainGroup = BC7432362F88F17E00ED5A76;
+			packageReferences = (
+			);
 			productRefGroup = BC7432402F88F17E00ED5A76 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,16 +404,15 @@
 				BC7432942F88F3BF00ED5A76 /* FanMonitor.swift in Sources */,
 				BC7432892F88F32300ED5A76 /* DashboardHeaderView.swift in Sources */,
 				BC74327A2F88F24200ED5A76 /* SystemStats.swift in Sources */,
-				BC7432A42F88F6AE00ED5A76 /* PrivilegeHelperManager.swift in Sources */,
 				BC7432452F88F17E00ED5A76 /* ContentView.swift in Sources */,
 				BC7432922F88F3A300ED5A76 /* ExternalBrightnessService.swift in Sources */,
-				BC7432A02F88F4B800ED5A76 /* HelperProtocol.swift in Sources */,
 				BC7432432F88F17E00ED5A76 /* GoUIApp.swift in Sources */,
 				BC7432902F88F37B00ED5A76 /* DiskReader.swift in Sources */,
+				BC49E2EB2F8BB678007025D6 /* HelperProtocol.swift in Sources */,
 				BC7432802F88F29F00ED5A76 /* PopupContentView.swift in Sources */,
 				BC74328E2F88F36400ED5A76 /* CPUReader.swift in Sources */,
-				BC7432A62F88F81700ED5A76 /* SMC.swift in Sources */,
 				BC7432962F88F3E200ED5A76 /* MemoryReader.swift in Sources */,
+				BC49E2EE2F8BC2A7007025D6 /* SMC.swift in Sources */,
 				BC74328B2F88F33F00ED5A76 /* BrightnessCard.swift in Sources */,
 				BC7432852F88F2F900ED5A76 /* RingStatView.swift in Sources */,
 				BC7432822F88F2C700ED5A76 /* AppDelegate.swift in Sources */,
@@ -453,10 +443,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC74329E2F88F49700ED5A76 /* HelperDelegate.swift in Sources */,
 				BC7432742F88F1B100ED5A76 /* main.swift in Sources */,
-				BC7432A12F88F4B800ED5A76 /* HelperProtocol.swift in Sources */,
 				BC7432A82F89458000ED5A76 /* SMC.swift in Sources */,
+				BC49E2E22F8BB01D007025D6 /* HelperProtocol.swift in Sources */,
+				BC49E2E42F8BB1FB007025D6 /* FanHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

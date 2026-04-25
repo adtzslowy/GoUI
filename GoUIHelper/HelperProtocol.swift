@@ -1,13 +1,15 @@
 //
 //  HelperProtocol.swift
-//  GoUI
+//  GoUIHelper
 //
-//  Created by ADITYA PRASETYO on 10/04/26.
+//  Created by ADITYA PRASETYO on 12/04/26.
 //
 
 import Foundation
 
-@objc protocol GoUIHelperProtocol {
-    func setFanMinSpeed(_ rpm: NSNumber, withReply reply: @escaping (NSNumber, NSString) -> Void)
-    func resetFanAuto(_ reply: @escaping (NSNumber, NSString) -> Void)
+@objc protocol HelperProtocol {
+    func getVersion(reply: @escaping (String) -> Void)
+    func getFanInfo(reply: @escaping ([[String: Any]]) -> Void)
+    func setFanMinSpeed(_ rpm: Int, reply: @escaping (Bool, String) -> Void)
+    func resetFanAuto(reply: @escaping (Bool, String) -> Void)
 }

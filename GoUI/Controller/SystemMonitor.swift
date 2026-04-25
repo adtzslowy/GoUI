@@ -2,40 +2,39 @@
 //  SystemMonitor.swift
 //  GoUI
 //
-//  Created by ADITYA PRASETYO on 10/04/26.
-//
 
 import Foundation
 import Combine
 
 final class SystemMonitor: ObservableObject {
     @Published var stats = SystemStats()
-    
+
     private var timer: Timer?
-    
+
     init() {
         refresh()
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
             self?.refresh()
         }
     }
-    
+
     deinit {
         timer?.invalidate()
     }
-    
+
     func refresh() {
-        stats.cpuUsage = CPUReader.currentCPUUsage()
-        
-        let memory = MemoryReader.currentMemory()
-        stats.memoryUsedGB = memory.usedGB
+        stats.cpuUsage    = CPUReader.currentCPUUsage()
+
+        let memory        = MemoryReader.currentMemory()
+        stats.memoryUsedGB  = memory.usedGB
         stats.memoryTotalGB = memory.totalGB
-        
-        let disk = DiskReader.currentDiskUsage()
-        stats.diskUsedGB = disk.usedGB
+
+        let disk          = DiskReader.currentDiskUsage()
+        stats.diskUsedGB  = disk.usedGB
         stats.diskTotalGB = disk.totalGB
-        
+
+        // Fan langsung dari SMCKit — tidak perlu XPC
         stats.fans = FanMonitor.currentFans()
     }
 }
