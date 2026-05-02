@@ -34,7 +34,6 @@ final class SystemMonitor: ObservableObject {
         stats.diskUsedGB  = disk.usedGB
         stats.diskTotalGB = disk.totalGB
 
-        // Fan langsung dari SMCKit — tidak perlu XPC
         stats.fans = FanMonitor.currentFans()
     }
 }

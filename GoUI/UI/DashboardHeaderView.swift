@@ -1,10 +1,3 @@
-//
-//  DashboardHeaderView.swift
-//  GoUI
-//
-//  Created by ADITYA PRASETYO on 10/04/26.
-//
-
 import SwiftUI
 
 struct DashboardHeaderView: View {
@@ -15,38 +8,58 @@ struct DashboardHeaderView: View {
             RingStatView(
                 title: "CPU",
                 systemImage: "cpu",
-                value: monitor.stats.cpuUsage / 100.0,
-                percentageText: "\(Int(monitor.stats.cpuUsage))%"
+                value: cpuValue,
+                percentageText: percentText(cpuPercent)
             )
 
             RingStatView(
                 title: "MEM",
                 systemImage: "memorychip",
-                value: monitor.stats.memoryTotalGB > 0
-                    ? monitor.stats.memoryUsedGB / monitor.stats.memoryTotalGB
-                    : 0,
-                percentageText: "\(Int(memoryPercent))%"
+                value: memoryValue,
+                percentageText: percentText(memoryPercent)
             )
 
             RingStatView(
                 title: "DISK",
                 systemImage: "internaldrive",
-                value: monitor.stats.diskTotalGB > 0
-                    ? monitor.stats.diskUsedGB / monitor.stats.diskTotalGB
-                    : 0,
-                percentageText: "\(Int(diskPercent))%"
+                value: diskValue,
+                percentageText: percentText(diskPercent)
             )
         }
         .frame(maxWidth: .infinity)
     }
 
-    private var memoryPercent: Double {
+    // MARK: - Values (0...1)
+
+    private var cpuValue: Double {
+        monitor.stats.cpuUsage / 100.0
+    }
+
+    private var memoryValue: Double {
         guard monitor.stats.memoryTotalGB > 0 else { return 0 }
-        return (monitor.stats.memoryUsedGB / monitor.stats.memoryTotalGB) * 100
+        return monitor.stats.memoryUsedGB / monitor.stats.memoryTotalGB
+    }
+
+    private var diskValue: Double {
+        guard monitor.stats.diskTotalGB > 0 else { return 0 }
+        return monitor.stats.diskUsedGB / monitor.stats.diskTotalGB
+    }
+
+    // MARK: - Percent (0...100)
+
+    private var cpuPercent: Double {
+        monitor.stats.cpuUsage
+    }
+
+    private var memoryPercent: Double {
+        memoryValue * 100
     }
 
     private var diskPercent: Double {
-        guard monitor.stats.diskTotalGB > 0 else { return 0 }
-        return (monitor.stats.diskUsedGB / monitor.stats.diskTotalGB) * 100
+        diskValue * 100
+    }
+
+    private func percentText(_ value: Double) -> String {
+        "\(Int(value))%"
     }
 }

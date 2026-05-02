@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import CoreGraphics
 
 final class ExternalBrightnessService: ObservableObject {
     @Published var brightness: Double = 100
@@ -15,6 +16,18 @@ final class ExternalBrightnessService: ObservableObject {
 
     init() {
         probeSupport()
+        setupDisplayListener()
+    }
+    
+    private func setupDisplayListener() {
+        CGDisplayRegisterReconfigurationCallback( { (_, flags, userInfo) in
+            let services = Unmanaged<ExternalBrightnessService>.fromOpaque(userInfo!).takeUnretainedValue()
+            
+            DispatchQueue.main.async {
+                print("Display changed: ", flags)
+                services.probeSupport()
+            }
+        }, UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()))
     }
 
     private func resolvePath() -> String? {
@@ -43,15 +56,18 @@ final class ExternalBrightnessService: ObservableObject {
         }
     }
 
-    func setBrightness(_ value: Int) {
+    func setBrightness(_ value: Int, isFinal: Bool = false) {
         pendingWorkItem?.cancel()
-
-        let workItem = DispatchWorkItem { [weak self] in
+        
+        let delay: Double = isFinal ? 0 : 0.2
+        
+        let workItem = DispatchWorkItem {[weak self] in
             self?.applyBrightness(value)
         }
-
+        
         pendingWorkItem = workItem
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15, execute: workItem)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: workItem)
     }
 
     private func applyBrightness(_ value: Int) {

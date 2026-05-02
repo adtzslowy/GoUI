@@ -11,8 +11,11 @@ class HelperDelegate: NSObject, NSXPCListenerDelegate {
     }
 }
 
+let machService = "adtzslowy.xyz.GoUIHelper"
 let delegate = HelperDelegate()
-let listener = NSXPCListener.service()  // ← ganti ini
+let listener = NSXPCListener(machServiceName: machService)
 listener.delegate = delegate
 listener.resume()
+
+
 RunLoop.main.run()
