@@ -2,10 +2,17 @@ import Foundation
 import Combine
 import CoreGraphics
 
+struct ExternalDisplay: Identifiable {
+    let id: Int
+    var name: String
+}
+
 final class ExternalBrightnessService: ObservableObject {
     @Published var brightness: Double = 100
     @Published var isSupported: Bool = false
     @Published var statusMessage: String = "Checking monitor..."
+    @Published var displays: [ExternalDisplay] = []
+    @Published var brightnessMap: [Int: Double] = [:]
 
     private let ddcctlPath = [
         "/usr/local/bin/ddcctl",
@@ -15,62 +22,97 @@ final class ExternalBrightnessService: ObservableObject {
     private var pendingWorkItem: DispatchWorkItem?
 
     init() {
-        probeSupport()
+        scanDisplays()
         setupDisplayListener()
     }
-    
+
     private func setupDisplayListener() {
-        CGDisplayRegisterReconfigurationCallback( { (_, flags, userInfo) in
-            let services = Unmanaged<ExternalBrightnessService>.fromOpaque(userInfo!).takeUnretainedValue()
-            
+        CGDisplayRegisterReconfigurationCallback({ (_, flags, userInfo) in
+            let service = Unmanaged<ExternalBrightnessService>
+                .fromOpaque(userInfo!)
+                .takeUnretainedValue()
+
             DispatchQueue.main.async {
-                print("Display changed: ", flags)
-                services.probeSupport()
+                print("Display changed:", flags)
+                service.scanDisplays()
             }
         }, UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()))
     }
 
     private func resolvePath() -> String? {
-        return ddcctlPath.first { FileManager.default.isExecutableFile(atPath: $0)}
+        return ddcctlPath.first {
+            FileManager.default.isExecutableFile(atPath: $0)
+        }
     }
 
-    func probeSupport() {
+    func scanDisplays() {
         guard let path = resolvePath() else {
-            isSupported = false
-            statusMessage = "ddcctl tidak ditemukan."
-            print("ddcctl not found in known paths")
+            DispatchQueue.main.async {
+                self.displays = []
+                self.isSupported = false
+                self.statusMessage = "ddcctl tidak ditemukan."
+            }
             return
         }
 
         runShell("\"\(path)\" -d 1") { [weak self] status, output in
             DispatchQueue.main.async {
-                print("probe output:", output)
-                if status == 0, output.lowercased().contains("external display") || output.lowercased().contains("polling edid") {
-                    self?.isSupported = true
-                    self?.statusMessage = "Monitor eksternal terdeteksi."
+                guard let self else { return }
+
+                print("SCAN OUTPUT:\n\(output)")
+
+                if output.lowercased().contains("found 1 external display") ||
+                   output.lowercased().contains("display") {
+
+                    self.displays = [
+                        ExternalDisplay(id: 1, name: "External Display")
+                    ]
+                    
+                    self.brightnessMap[1] = 100
+
+                    self.isSupported = true
+                    self.statusMessage = "1 monitor terdeteksi"
                 } else {
-                    self?.isSupported = false
-                    self?.statusMessage = "Hubungkan monitor eksternal untuk mengatur brightness."
+                    self.displays = []
+                    self.isSupported = false
+                    self.statusMessage = "Monitor tidak terdeteksi"
                 }
             }
         }
     }
 
-    func setBrightness(_ value: Int, isFinal: Bool = false) {
+    func setBrightness(_ value: Int, for displayID: Int, isFinal: Bool = false) {
         pendingWorkItem?.cancel()
-        
+
         let delay: Double = isFinal ? 0 : 0.2
-        
-        let workItem = DispatchWorkItem {[weak self] in
-            self?.applyBrightness(value)
+
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.applyBrightness(value, displayID: displayID)
         }
-        
+
         pendingWorkItem = workItem
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: workItem)
     }
 
-    private func applyBrightness(_ value: Int) {
+    func setBrightnessAll(_ value: Int, isFinal: Bool = false) {
+        pendingWorkItem?.cancel()
+
+        let delay: Double = isFinal ? 0 : 0.2
+
+        let workItem = DispatchWorkItem { [weak self] in
+            guard let self else { return }
+            for display in self.displays {
+                self.applyBrightness(value, displayID: display.id)
+            }
+        }
+
+        pendingWorkItem = workItem
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: workItem)
+    }
+
+    private func applyBrightness(_ value: Int, displayID: Int) {
         guard let path = resolvePath() else {
             DispatchQueue.main.async {
                 self.isSupported = false
@@ -79,39 +121,44 @@ final class ExternalBrightnessService: ObservableObject {
             return
         }
 
-        runShell("\"\(path)\" -d 1 -b \(value)") { [weak self] status, output in
+        runShell("\"\(path)\" -d \(displayID) -b \(value)") { [weak self] status, output in
             DispatchQueue.main.async {
-                print("brightness output:", output)
+                print("Display \(displayID):", output)
+
                 if status == 0 {
-                    self?.isSupported = true
                     self?.brightness = Double(value)
-                    self?.statusMessage = "Brightness \(value)%"
+                    self?.brightnessMap[displayID] = Double(value)
+                    self?.isSupported = true
+                    self?.statusMessage = "Display \(displayID): \(value)%"
                 } else {
                     self?.isSupported = false
-                    self?.statusMessage = "Gagal mengubah brightness."
+                    self?.statusMessage = "Gagal ubah brightness display \(displayID)"
                 }
             }
         }
     }
 
     private func runShell(_ command: String, completion: @escaping (Int32, String) -> Void) {
-        let process = Process()
-        let pipe = Pipe()
+        DispatchQueue.global(qos: .userInitiated).async {
+            let process = Process()
+            let pipe = Pipe()
 
-        process.executableURL = URL(fileURLWithPath: "/bin/zsh")
-        process.arguments = ["-lc", command]
-        process.standardOutput = pipe
-        process.standardError = pipe
+            process.executableURL = URL(fileURLWithPath: "/bin/zsh")
+            process.arguments = ["-lc", command]
+            process.standardOutput = pipe
+            process.standardError = pipe
 
-        do {
-            try process.run()
-            process.waitUntilExit()
+            do {
+                try process.run()
+                process.waitUntilExit()
 
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            let output = String(data: data, encoding: .utf8) ?? ""
-            completion(process.terminationStatus, output)
-        } catch {
-            completion(1, error.localizedDescription)
+                let data = pipe.fileHandleForReading.readDataToEndOfFile()
+                let output = String(data: data, encoding: .utf8) ?? ""
+
+                completion(process.terminationStatus, output)
+            } catch {
+                completion(1, error.localizedDescription)
+            }
         }
     }
 }

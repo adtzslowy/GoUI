@@ -38,6 +38,8 @@
 		BC7432962F88F3E200ED5A76 /* MemoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432952F88F3E200ED5A76 /* MemoryReader.swift */; };
 		BC7432A82F89458000ED5A76 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7432A52F88F81700ED5A76 /* SMC.swift */; };
 		BC763F452FA5E5BD001D2E82 /* GoUIHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC7432712F88F1B100ED5A76 /* GoUIHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BCB353DC2FA8503D002F3C36 /* BrightnessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB353DB2FA8503D002F3C36 /* BrightnessRow.swift */; };
+		BCB353E22FA8548F002F3C36 /* ThinSliderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB353E12FA8548F002F3C36 /* ThinSliderStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		BC7432932F88F3BF00ED5A76 /* FanMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanMonitor.swift; sourceTree = "<group>"; };
 		BC7432952F88F3E200ED5A76 /* MemoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReader.swift; sourceTree = "<group>"; };
 		BC7432A52F88F81700ED5A76 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMC.swift; path = ../../../SMCKit/SMCKit/SMC.swift; sourceTree = "<group>"; };
+		BCB353DB2FA8503D002F3C36 /* BrightnessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessRow.swift; sourceTree = "<group>"; };
+		BCB353E12FA8548F002F3C36 /* ThinSliderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinSliderStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,8 @@
 				BC7432862F88F31200ED5A76 /* FanControlCard.swift */,
 				BC7432882F88F32300ED5A76 /* DashboardHeaderView.swift */,
 				BC74328A2F88F33F00ED5A76 /* BrightnessCard.swift */,
+				BCB353DB2FA8503D002F3C36 /* BrightnessRow.swift */,
+				BCB353E12FA8548F002F3C36 /* ThinSliderStyle.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -417,12 +423,14 @@
 				BC7432942F88F3BF00ED5A76 /* FanMonitor.swift in Sources */,
 				BC7432892F88F32300ED5A76 /* DashboardHeaderView.swift in Sources */,
 				BC74327A2F88F24200ED5A76 /* SystemStats.swift in Sources */,
+				BCB353E22FA8548F002F3C36 /* ThinSliderStyle.swift in Sources */,
 				BC7432452F88F17E00ED5A76 /* ContentView.swift in Sources */,
 				BC469B482FA5EF0000AC12D5 /* HelperClient.swift in Sources */,
 				BC7432922F88F3A300ED5A76 /* ExternalBrightnessService.swift in Sources */,
 				BC469B462FA5EDD400AC12D5 /* InstallHelper.swift in Sources */,
 				BC7432432F88F17E00ED5A76 /* GoUIApp.swift in Sources */,
 				BC7432902F88F37B00ED5A76 /* DiskReader.swift in Sources */,
+				BCB353DC2FA8503D002F3C36 /* BrightnessRow.swift in Sources */,
 				BC49E2EB2F8BB678007025D6 /* HelperProtocol.swift in Sources */,
 				BC7432802F88F29F00ED5A76 /* PopupContentView.swift in Sources */,
 				BC74328E2F88F36400ED5A76 /* CPUReader.swift in Sources */,

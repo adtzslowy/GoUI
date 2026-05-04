@@ -5,61 +5,59 @@ struct DashboardHeaderView: View {
 
     var body: some View {
         HStack(spacing: 18) {
-            RingStatView(
+            statItem(
                 title: "CPU",
-                systemImage: "cpu",
-                value: cpuValue,
-                percentageText: percentText(cpuPercent)
+                icon: "cpu",
+                value: safe(cpuPercent / 100)
             )
 
-            RingStatView(
+            statItem(
                 title: "MEM",
-                systemImage: "memorychip",
-                value: memoryValue,
-                percentageText: percentText(memoryPercent)
+                icon: "memorychip",
+                value: safe(memoryRatio)
             )
 
-            RingStatView(
+            statItem(
                 title: "DISK",
-                systemImage: "internaldrive",
-                value: diskValue,
-                percentageText: percentText(diskPercent)
+                icon: "internaldrive",
+                value: safe(diskRatio)
             )
         }
         .frame(maxWidth: .infinity)
     }
+}
 
-    // MARK: - Values (0...1)
-
-    private var cpuValue: Double {
-        monitor.stats.cpuUsage / 100.0
+private extension DashboardHeaderView {
+    func statItem(title: String, icon: String, value: Double) -> some View {
+        RingStatView(
+            title: title,
+            systemImage: icon,
+            value: value,
+            percentageText: "\(Int(value * 100))%"
+        )
     }
+}
 
-    private var memoryValue: Double {
-        guard monitor.stats.memoryTotalGB > 0 else { return 0 }
-        return monitor.stats.memoryUsedGB / monitor.stats.memoryTotalGB
-    }
 
-    private var diskValue: Double {
-        guard monitor.stats.diskTotalGB > 0 else { return 0 }
-        return monitor.stats.diskUsedGB / monitor.stats.diskTotalGB
-    }
+private extension DashboardHeaderView {
 
-    // MARK: - Percent (0...100)
-
-    private var cpuPercent: Double {
+    var cpuPercent: Double {
         monitor.stats.cpuUsage
     }
 
-    private var memoryPercent: Double {
-        memoryValue * 100
+    var memoryRatio: Double {
+        let total = monitor.stats.memoryTotalGB
+        guard total > 0 else { return 0 }
+        return monitor.stats.memoryUsedGB / total
     }
 
-    private var diskPercent: Double {
-        diskValue * 100
+    var diskRatio: Double {
+        let total = monitor.stats.diskTotalGB
+        guard total > 0 else { return 0 }
+        return monitor.stats.diskUsedGB / total
     }
 
-    private func percentText(_ value: Double) -> String {
-        "\(Int(value))%"
+    func safe(_ value: Double) -> Double {
+        min(max(value, 0), 1)
     }
 }
